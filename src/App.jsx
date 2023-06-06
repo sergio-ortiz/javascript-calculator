@@ -1,11 +1,14 @@
 import BtnRow from "./components/btn-row"
 import BtnCol from "./components/btn-col";
+import { useSelector } from "react-redux";
 
 function App() {
+  const display = useSelector(state => state.display.value)
+
   return (
     <div className="container vh-100">
-      <div id="display" className="row h-25 bg-light">
-        <div className="col"/>
+      <div id="display" className="row h-25 bg-light align-items-end">
+        <div className="col text-end fs-1 py-0">{display}</div>
       </div>
       <div className="row h-75 bg-warning">
         <div className="col">
@@ -20,7 +23,7 @@ function App() {
             <BtnCol id={"one"} textContent={"1"} />
             <BtnCol id={"two"} textContent={"2"} />
             <BtnCol id={"three"} textContent={"3"} />
-            <BtnCol id={"subtract"} textContent={"_"} />
+            <BtnCol id={"subtract"} textContent={"-"} />
           </BtnRow>
           <BtnRow>
             <BtnCol id={"four"} textContent={"4"} />
